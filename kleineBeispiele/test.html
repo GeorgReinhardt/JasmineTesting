@@ -1,0 +1,26 @@
+// #3 Hierarchie
+describe("tier1", function(){
+  
+     it("is true", function(){
+        expect(true).toBe(true);
+    
+      });
+    
+     describe("tier1.1", function(){
+       it("is true", function(){
+         expect(true).toBe(true);
+    
+       });
+      });
+    
+    describe("tier1.2", function(){
+      it("is true", function(){
+        expect(true).toBe(true);
+    
+      });
+      it("is also true", function(){
+        expect(2).toBe(2);
+    
+      });
+    });   
+});
