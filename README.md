@@ -1,2 +1,13 @@
 # JasmineTesting
 Beispiele für das Testen mit Jasmine
+
+Es handelt sich um 5 kleine Beispiele und ein größeres in Form einer Todo-Liste.
+
+Die kleinen Beispiele lassen sich gut mit https://jsbin.com testen. Zum Beispiel einfach unter HTML reinkopieren.
+
+Zur Todo-Liste:
+
+-mit Jasmin testen durch die SpecRunner.html
+-die Liste verwenden mit src/index.html
+-der wichtige Code für den Test steht unter spec/todoSpec.js
+-für die Todo-Liste unter src/js/todo.js
