@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>ToDo</title>
+  </head>
+	<style>
+@charset "utf-8";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+  background-color: lavenderblush;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+  float: left;
+  padding: 10px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 100%;
+  background-color: lavender;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+@media only screen and (min-width: 601px) {
+  .container {
+    width: 85%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 70%;
+  }
+}
+
+.today{
+  background-color: salmon;
+}
+
+.listitem{
+  border-width: 3px;
+  border-color: black;
+  border-style: solid;
+  background-color: lightgrey;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.button{
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  background-color: lightgrey;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: darkgrey;
+  float: right;
+}
+
+.button:active{
+  font-size: 14px;
+}
+
+.button:hover{
+  color: black;
+}
+
+.center{
+  text-align: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+
+.input-area{
+  margin-bottom: 50px;
+}
+
+input{
+  width: 100%;
+  height: 25px;
+}
+
+.add-item{
+  margin-top: 22px;
+}
+</style>
+  <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="center">To-Do Listen Manager</h2>
+      </div>
+      <div class="col-5 input-area">
+        <span>Inhalt</span><br>
+        <input id="todotext" type="text" value="">
+      </div>
+      <div class="col-4">
+        <span>Datum</span><br>
+        <input id="tododate" type="text" value="">
+      </div>
+      <div class="col-3">
+        <span class="button add-item">Hinzufügen</span>
+      </div>
+      <div id="todolist" class="col-12">
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/todo.js"></script>
+  <script type="text/javascript">
+    var list = new TodoList($("#todolist"), function(){
+      $(".remove-item").unbind().click(function(){
+        list.remove($(this).attr("data-index"));
+      });
+
+      $(".add-item").unbind().click(function(){
+        if($("#todotext").val().length > 0 && $("#tododate").val().length > 0){
+          list.add($("#todotext").val(), $("#tododate").val());
+          $("#todotext").val("");
+          $("#tododate").val("");
+        }
+      });
+    });
+    console.log(new Date().toLocaleDateString());
+  </script>
+  </body>
+</html>
